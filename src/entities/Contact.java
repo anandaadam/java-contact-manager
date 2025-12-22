@@ -8,15 +8,15 @@ public class Contact {
     private ArrayList<String> phoneNumbers;
     private String email;
     private String address;
-    private String tag;
+    private ArrayList<String> tags;
     private boolean bookmark;
 
-    public Contact(String name, ArrayList<String> phoneNumbers, String email, String address, String tag, boolean bookmark) {
+    public Contact(String name, ArrayList<String> phoneNumbers, String email, String address, ArrayList<String> tags, boolean bookmark) {
         this.name = name;
         this.phoneNumbers = phoneNumbers;
         this.email = email;
         this.address = address;
-        this.tag = tag;
+        this.tags = tags;
         this.bookmark = bookmark;
     }
 
@@ -52,12 +52,12 @@ public class Contact {
         this.address = address;
     }
 
-    public String getTag() {
-        return tag;
+    public ArrayList<String> getTags() {
+        return tags;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setTags(ArrayList<String> tags) {
+        this.tags = tags;
     }
 
     public boolean isBookmark() {
@@ -75,7 +75,7 @@ public class Contact {
                 ", phoneNumbers=" + phoneNumbers +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
-                ", tag='" + tag + '\'' +
+                ", tags='" + tags + '\'' +
                 ", bookmark=" + bookmark +
                 '}';
     }
@@ -85,7 +85,7 @@ public class Contact {
         if (o == null || getClass() != o.getClass()) return false;
 
         Contact contact = (Contact) o;
-        return bookmark == contact.bookmark && Objects.equals(name, contact.name) && Objects.equals(phoneNumbers, contact.phoneNumbers) && Objects.equals(email, contact.email) && Objects.equals(address, contact.address) && Objects.equals(tag, contact.tag);
+        return bookmark == contact.bookmark && Objects.equals(name, contact.name) && Objects.equals(phoneNumbers, contact.phoneNumbers) && Objects.equals(email, contact.email) && Objects.equals(address, contact.address) && Objects.equals(tags, contact.tags);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class Contact {
         result = 31 * result + Objects.hashCode(phoneNumbers);
         result = 31 * result + Objects.hashCode(email);
         result = 31 * result + Objects.hashCode(address);
-        result = 31 * result + Objects.hashCode(tag);
+        result = 31 * result + Objects.hashCode(tags);
         result = 31 * result + Boolean.hashCode(bookmark);
         return result;
     }
