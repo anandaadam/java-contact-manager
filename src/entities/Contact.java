@@ -75,10 +75,11 @@ public class Contact {
                 ", phoneNumbers=" + phoneNumbers +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
-                ", tags='" + tags + '\'' +
+                ", tags=" + tags +
                 ", bookmark=" + bookmark +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
