@@ -1,12 +1,13 @@
 package services;
 
+import dto.CreateContactRequest;
 import entities.Contact;
 
 import java.util.List;
 
 public interface ContactService {
     // Basic CRUD Contact
-    Contact addContact(Contact contact);
+    Contact addContact(CreateContactRequest request);
     Contact updateContact(String name, Contact contact);
     boolean removeContact(String name);
 
