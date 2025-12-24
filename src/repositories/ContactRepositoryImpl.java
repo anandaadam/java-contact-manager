@@ -19,6 +19,7 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public Contact addContact(Contact contact) {
+        contacts.put(contact.getName(), contact);
         return null;
     }
 
