@@ -38,6 +38,12 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public boolean removeContact(String contactName) {
+        Contact contact = contacts.get(contactName);
+        if (contact != null) {
+            contacts.remove(contactName);
+            return true;
+        }
+
         return false;
     }
 
