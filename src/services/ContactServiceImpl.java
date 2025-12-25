@@ -40,8 +40,27 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact updateContact(String name, Contact contact) {
-        return null;
+    public Contact updateContact(String contactName, CreateContactRequest request) {
+        String name = request.getName();
+        String email = request.getEmail();
+        String address = request.getAddress();
+        boolean bookmark = request.isBookmark();
+
+        String phonesInput = request.getPhoneNumbers();
+        ArrayList<String> phoneNumbers = new ArrayList<>();
+        for (String phone : phonesInput.split(",")) {
+            phoneNumbers.add(phone);
+        }
+
+        String tagsInput = request.getTags();
+        ArrayList<String> tags = new ArrayList<>();
+        for (String tag :  tagsInput.split(",")) {
+            tags.add(tag);
+        }
+
+        Contact contact = new Contact(name, phoneNumbers, email, address, tags, bookmark);
+
+        return contactRepository.updateContact(contactName, contact);
     }
 
     @Override
