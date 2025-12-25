@@ -25,6 +25,14 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public Contact updateContact(String contactName, Contact contact) {
+        Contact oldContact = contacts.get(contactName);
+        if (oldContact != null) {
+            contacts.remove(contactName);
+            contacts.put(contact.getName(), contact);
+
+            return contact;
+        }
+
         return null;
     }
 
