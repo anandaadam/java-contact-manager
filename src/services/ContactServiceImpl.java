@@ -65,7 +65,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public boolean removeContact(String contactName) {
-        return false;
+        return contactRepository.removeContact(contactName);
     }
 
     @Override
