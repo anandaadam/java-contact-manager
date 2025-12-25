@@ -24,22 +24,22 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
-    public Contact updateContact(String name, Contact contact) {
+    public Contact updateContact(String contactName, Contact contact) {
         return null;
     }
 
     @Override
-    public boolean removeContact(String name) {
+    public boolean removeContact(String contactName) {
         return false;
     }
 
     @Override
-    public boolean addToBookmark(String name) {
+    public boolean addToBookmark(String contactName) {
         return false;
     }
 
     @Override
-    public boolean removeBookmark(String name) {
+    public boolean removeBookmark(String contactName) {
         return false;
     }
 
@@ -64,7 +64,7 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
-    public boolean contactExists(String name) {
+    public boolean contactExists(String contactName) {
         return false;
     }
 

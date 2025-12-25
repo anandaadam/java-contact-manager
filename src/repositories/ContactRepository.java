@@ -7,12 +7,12 @@ import java.util.List;
 public interface ContactRepository {
     // Basic CRUD Contact
     Contact addContact(Contact contact);
-    Contact updateContact(String name, Contact contact);
-    boolean removeContact(String name);
+    Contact updateContact(String contactName, Contact contact);
+    boolean removeContact(String contactName);
 
     // Bookmark Management
-    boolean addToBookmark(String name);
-    boolean removeBookmark(String name);
+    boolean addToBookmark(String contactName);
+    boolean removeBookmark(String contactName);
 
     // Query Methods
     List<Contact> viewAllContacts();
@@ -21,6 +21,6 @@ public interface ContactRepository {
     List<Contact> viewBookmarkedContact();
 
     // Utility
-    boolean contactExists(String name);
+    boolean contactExists(String contactName);
     int getTotalContacts();
 }
