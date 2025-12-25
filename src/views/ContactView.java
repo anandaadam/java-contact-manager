@@ -4,8 +4,6 @@ import dto.CreateContactRequest;
 import entities.Contact;
 import services.ContactService;
 
-import java.sql.SQLOutput;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class ContactView {
@@ -37,7 +35,7 @@ public class ContactView {
                 case "1" -> viewAllContacts();
                 case "2" -> addContact();
                 case "3" -> updateContact();
-//                case "4" -> removeContact();
+                case "4" -> removeContact();
 //                case "5" -> addToBookmark();
 //                case "6" -> removeFromBookmark();
 //                case "7" -> searchContact();
@@ -112,6 +110,23 @@ public class ContactView {
 
         if (result != null) {
             System.out.println(result);
+        } else {
+            System.out.println("Contact is not listed");
+        }
+    }
+
+    public void removeContact() {
+        System.out.println("Remove Contact");
+
+        viewAllContacts();
+
+        System.out.print("Choose contact name: ");
+        String contactName = scanner.nextLine();
+
+        boolean isDelete = contactService.removeContact(contactName);
+
+        if (isDelete) {
+            System.out.println("Success to remove");
         } else {
             System.out.println("Contact is not listed");
         }
