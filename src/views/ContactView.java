@@ -4,6 +4,7 @@ import dto.CreateContactRequest;
 import entities.Contact;
 import services.ContactService;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class ContactView {
             switch (input) {
                 case "1" -> viewAllContacts();
                 case "2" -> addContact();
-//                case "3" -> updateContact();
+                case "3" -> updateContact();
 //                case "4" -> removeContact();
 //                case "5" -> addToBookmark();
 //                case "6" -> removeFromBookmark();
@@ -79,5 +80,40 @@ public class ContactView {
         Contact result =  contactService.addContact(request);
 
         System.out.println(result);
+    }
+
+    public void updateContact() {
+        System.out.println("Update Contact");
+
+        viewAllContacts();
+
+        System.out.print("Choose contact name: ");
+        String contactName = scanner.nextLine();
+
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Phone numbers (comma separated): ");
+        String phoneNumbers = scanner.nextLine();
+
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Address: ");
+        String address = scanner.nextLine();
+
+        System.out.print("Tags (comma separated): ");
+        String tags = scanner.nextLine();
+
+        boolean bookmark = false;
+
+        CreateContactRequest request = new CreateContactRequest(name, phoneNumbers, email, address, tags, bookmark);
+        Contact result = contactService.updateContact(contactName, request);
+
+        if (result != null) {
+            System.out.println(result);
+        } else {
+            System.out.println("Contact is not listed");
+        }
     }
 }
