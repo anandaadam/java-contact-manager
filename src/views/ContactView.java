@@ -37,7 +37,7 @@ public class ContactView {
                 case "3" -> updateContact();
                 case "4" -> removeContact();
                 case "5" -> addToBookmark();
-//                case "6" -> removeFromBookmark();
+                case "6" -> removeFromBookmark();
 //                case "7" -> searchContact();
 //                case "8" -> viewByTag();
 //                case "9" -> viewBookmarked();
@@ -143,6 +143,22 @@ public class ContactView {
         boolean success = contactService.addToBookmark(contactName);
         if (success) {
             System.out.println("Success add to bookmark");
+        } else {
+            System.out.println("Contact is not listed");
+        }
+    }
+
+    public void removeFromBookmark() {
+        System.out.println("Remove from Bookmark");
+
+        viewAllContacts();
+
+        System.out.print("Choose contact name: ");
+        String contactName = scanner.nextLine();
+
+        boolean success = contactService.removeBookmark(contactName);
+        if (success) {
+            System.out.println("Success remove from bookmark");
         } else {
             System.out.println("Contact is not listed");
         }
