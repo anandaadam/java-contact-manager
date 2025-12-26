@@ -49,6 +49,13 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public boolean addToBookmark(String contactName) {
+        Contact contact = contacts.get(contactName);
+        if (contact != null) {
+            contact.setBookmark(true);
+            contacts.put(contactName, contact);
+            return true;
+        }
+
         return false;
     }
 
