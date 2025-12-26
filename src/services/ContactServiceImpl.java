@@ -70,7 +70,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public boolean addToBookmark(String contactName) {
-        return false;
+        return contactRepository.addToBookmark(contactName);
     }
 
     @Override
