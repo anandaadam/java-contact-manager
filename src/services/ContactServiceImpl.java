@@ -75,7 +75,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public boolean removeBookmark(String contactName) {
-        return false;
+        return contactRepository.removeBookmark(contactName);
     }
 
     @Override
