@@ -38,7 +38,7 @@ public class ContactView {
                 case "4" -> removeContact();
                 case "5" -> addToBookmark();
                 case "6" -> removeFromBookmark();
-//                case "7" -> searchContact();
+                case "7" -> searchContact();
 //                case "8" -> viewByTag();
 //                case "9" -> viewBookmarked();
                 case "10" -> {
@@ -162,5 +162,14 @@ public class ContactView {
         } else {
             System.out.println("Contact is not listed");
         }
+    }
+
+    public void searchContact() {
+        System.out.println("Search Contact");
+
+        System.out.print("Keyword: ");
+        String keyWord = scanner.nextLine();
+
+       contactService.searchContact(keyWord);
     }
 }
