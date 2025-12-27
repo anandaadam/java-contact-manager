@@ -92,7 +92,14 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void searchContact(String keyWord) {
+        List<Contact> contacts = contactRepository.searchContact(keyWord);
+        if (contacts.isEmpty()) {
+            System.out.println("No contact matches");
+        }
 
+        for (Contact contact : contacts) {
+            System.out.println(contact);
+        }
     }
 
     @Override
