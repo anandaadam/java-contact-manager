@@ -20,7 +20,22 @@ public class ContactRepositoryImpl implements ContactRepository {
     @Override
     public Contact addContact(Contact contact) {
         contacts.put(contact.getName(), contact);
-        return null;
+
+        for (String phone : contact.getPhoneNumbers()) {
+            contactsByPhone.put(phone, contact);
+        }
+
+        for (String tag : contact.getTags()) {
+            contactsByTag
+                    .computeIfAbsent(tag, k -> new HashSet<>())
+                    .add(contact);
+        }
+
+        if (contact.isBookmark()) {
+            bookmarkedContacts.add(contact);
+        }
+
+        return contact;
     }
 
     @Override
