@@ -93,7 +93,25 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public List<Contact> searchContact(String keyWord) {
-        return List.of();
+        Set<Contact> result = new HashSet<>();
+
+        for (Contact contact : contacts.values()) {
+            if (contact.getName().toLowerCase().contains(keyWord.toLowerCase())) {
+                result.add(contact);
+            }
+        }
+
+        Contact byPhone = contactsByPhone.get(keyWord);
+        if (byPhone != null) {
+            result.add(byPhone);
+        }
+
+        Set<Contact> byTag = contactsByTag.get(keyWord);
+        if (byTag != null) {
+            result.addAll(byTag);
+        }
+
+        return new ArrayList<>(result);
     }
 
     @Override
