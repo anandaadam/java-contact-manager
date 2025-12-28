@@ -69,6 +69,9 @@ public class ContactRepositoryImpl implements ContactRepository {
         if (contact != null) {
             contact.setBookmark(true);
             contacts.put(contactName, contact);
+
+            bookmarkedContacts.add(contact);
+
             return true;
         }
 
@@ -81,6 +84,9 @@ public class ContactRepositoryImpl implements ContactRepository {
         if (contact != null) {
             contact.setBookmark(false);
             contacts.put(contactName, contact);
+
+            bookmarkedContacts.remove(contact);
+
             return true;
         }
 
@@ -131,7 +137,7 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public List<Contact> viewBookmarkedContact() {
-        return List.of();
+        return bookmarkedContacts;
     }
 
     @Override
