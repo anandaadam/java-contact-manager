@@ -39,7 +39,7 @@ public class ContactView {
                 case "5" -> addToBookmark();
                 case "6" -> removeFromBookmark();
                 case "7" -> searchContact();
-//                case "8" -> viewByTag();
+                case "8" -> viewByTag();
 //                case "9" -> viewBookmarked();
                 case "10" -> {
                     System.out.println("Goodbye 👋");
@@ -171,5 +171,14 @@ public class ContactView {
         String keyWord = scanner.nextLine();
 
        contactService.searchContact(keyWord);
+    }
+
+    public void viewByTag() {
+        System.out.println("View Contact by Tags");
+
+        System.out.print("Choose tags (comma separated): ");
+        String tags = scanner.nextLine();
+
+        contactService.viewContactByTag(tags);
     }
 }
