@@ -17,7 +17,7 @@ public interface ContactRepository {
     // Query Methods
     List<Contact> viewAllContacts();
     List<Contact> searchContact(String keyWord);
-    List<Contact> viewContactByTag(String tag);
+    List<Contact> viewContactByTags(List<String> tags);
     List<Contact> viewBookmarkedContact();
 
     // Utility
