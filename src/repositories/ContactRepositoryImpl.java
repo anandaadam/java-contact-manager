@@ -2,6 +2,7 @@ package repositories;
 
 import entities.Contact;
 
+import java.awt.event.ContainerAdapter;
 import java.util.*;
 
 public class ContactRepositoryImpl implements ContactRepository {
@@ -115,8 +116,17 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
-    public List<Contact> viewContactByTag(String tag) {
-        return List.of();
+    public List<Contact> viewContactByTags(List<String> tags) {
+        Set<Contact> finalResults = new HashSet<>();
+
+        for (String tag: tags) {
+            HashSet<Contact> results = contactsByTag.get(tag);
+            if (results != null) {
+                finalResults.addAll(results);
+            }
+        }
+
+        return new ArrayList<>(finalResults);
     }
 
     @Override
