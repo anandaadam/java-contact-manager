@@ -16,7 +16,7 @@ public interface ContactService {
     // Query Methods
     void viewAllContacts();
     void searchContact(String keyWord);
-    void viewContactByTag(String tag);
+    void viewContactByTag(String tags);
     void viewBookmarkedContact();
 
     // Utility
