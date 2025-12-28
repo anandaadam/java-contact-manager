@@ -103,8 +103,20 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void viewContactByTag(String tag) {
+    public void viewContactByTag(String tags) {
+        ArrayList<String> input = new ArrayList<>();
+        for (String tag :  tags.split(",")) {
+            input.add(tag);
+        }
 
+        List<Contact> contacts = contactRepository.viewContactByTags(input);
+        if (contacts.isEmpty()) {
+            System.out.println("No contact matches");
+        }
+
+        for (Contact contact : contacts) {
+            System.out.println(contact);
+        }
     }
 
     @Override
