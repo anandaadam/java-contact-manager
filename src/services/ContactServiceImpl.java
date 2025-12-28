@@ -121,7 +121,14 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void viewBookmarkedContact() {
+        List<Contact> contacts = contactRepository.viewBookmarkedContact();
+        if (contacts.isEmpty()) {
+            System.out.println("Bookmarked contacts is empty");
+        }
 
+        for (Contact contact : contacts) {
+            System.out.println(contact);
+        }
     }
 
     @Override
