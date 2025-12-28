@@ -40,7 +40,7 @@ public class ContactView {
                 case "6" -> removeFromBookmark();
                 case "7" -> searchContact();
                 case "8" -> viewByTag();
-//                case "9" -> viewBookmarked();
+                case "9" -> viewBookmarked();
                 case "10" -> {
                     System.out.println("Goodbye 👋");
                     return; //
@@ -180,5 +180,11 @@ public class ContactView {
         String tags = scanner.nextLine();
 
         contactService.viewContactByTag(tags);
+    }
+
+    public void viewBookmarked() {
+        System.out.println("View Bookmarked Contacts");
+
+        contactService.viewBookmarkedContact();
     }
 }
