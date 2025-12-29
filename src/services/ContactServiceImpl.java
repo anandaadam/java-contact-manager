@@ -88,6 +88,9 @@ public class ContactServiceImpl implements ContactService {
         for (Contact contact : contacts) {
             System.out.println(contact);
         }
+
+        int totalContacts = contactRepository.getTotalContacts();
+        System.out.println("Total contacts: " + totalContacts);
     }
 
     @Override
