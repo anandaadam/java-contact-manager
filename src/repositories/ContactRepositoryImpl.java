@@ -147,6 +147,6 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public int getTotalContacts() {
-        return 0;
+        return contacts.size();
     }
 }
